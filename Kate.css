@@ -1,13 +1,33 @@
 /* YOUR NAME GOES HERE */
 /* Ankita Kate */
-
 /* --------------- ADD CSS RESET TO THE FILE HERE --------------- */
-
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+  
+  html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+  
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  
+  input, button, textarea, select {
+    font: inherit;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
 
 /* ----- AUTOPREFIXER FOR VS CODE WAS USED FOR VENDOR PREFIXES ----- */
 /* ---------- VARIABLES ---------- */
@@ -30,19 +50,12 @@
 *{
     box-sizing: border-box;
     line-height: 1.35;
-    font-family: sans-serif;
-}
-body {
-    background-color: var(--light-gray);
-    color: var(--dark-gray);
-    font-size: 16px;
 }
 
 
 
 /* ----- CHECK FOR USER DARK MODE PREFERENCE ----- */
 /* --------------- BEGIN USER PREFERS DARK COLOR SCHEME QUERY --------------- */
-
 @media (prefers-color-scheme: dark) {
     body {
       background-color: var(--dark-gray);
@@ -51,33 +64,33 @@ body {
   
     header, footer {
       background-color: var(--black);
+      color: var(--light-gray);
     }
   
     section {
       background-color: var(--blue-gray);
+      color: var(--light-gray);
     }
   }
-
 /* CHANGE THE BODY'S BACKGROUND COLOR TO THE DARK GRAY IF THE USER PREFERS DARK MODE */
+
 /* --------------- END USER PREFERS DARK COLOR SCHEME QUERY --------------- */
+
 
 
 /* ----- HEADINGS ----- */
 h1, h2, h3, h4{
     font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 00.5em;
 }
 
 h1{
     font-size: 2em;
-    margin-top: 0.5em;
+    margin: 0.5em 0;
     display: inline;
-   
 }
 
 h2{
-    font-size: 1.5em;
+    font-size: 1.75em;
     display: inline;
 }
 
@@ -85,9 +98,7 @@ h2{
 img{
     display: block;
     max-width: 100%;
-    height: auto;
-    margin: 1em 0;
-    border-radius: 0.5em;
+    margin: 0.5em 0;
 }
 
 /* ----- ANIMATED ICON ----- */
@@ -120,16 +131,22 @@ footer .icon{
 
 /* ----- HANDLE PREFERS REDUCED MOTION FOR THE ICON ANIMATIONS ----- */
 /* --------------- BEGIN USER PREFERS REDUCED MOTION QUERY --------------- */
+    
+    @-webkit-keyframes icon-animation {
+        0% { font-variation-settings: "TIME" 1; }
+    }
+    @keyframes icon-animation {
+        0% { font-variation-settings: "TIME" 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .icon {
+          animation: none !important;
+          -webkit-animation: none !important;
+        }
+      }
 /* --------------- END USER PREFERS REDUCED MOTION QUERY --------------- */
 
 
-@media (prefers-reduced-motion: reduce) {
-    .icon {
-      animation: none !important;
-      -webkit-animation: none !important;
-    }
-  }
-  
 
 /* ----- TEXT ----- */
 p, small{
@@ -137,8 +154,6 @@ p, small{
     margin: 0.25em;
     padding: 0.25em;
     max-width: 75ch;
-    line-height: 1.6;
-    color: var(--dark-gray);
 }
 
 /* ----- MAIN/HEADER/FOOTER ----- */
@@ -149,55 +164,33 @@ main, header, footer{
 }
 
 header, footer{
-    padding: 1.5em;
-    background-color: var(--pink);
-    color: var(--white);
-    text-align: center;
+    padding: 1em;
 }
 
 main{
     max-width: 1795px;
-    margin: 0 auto;
-    padding: 1 em;
 }
 
 /* ----- CONTAINERS ----- */
 section{
     margin: 1em 0;
     padding: 1em;
-    background-color: var(--red);
-    color: var(--light-gray);
-    border-radius: 0.5em;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* ---------- EXTRA SMALL SCREEN STYLES ---------- */
-body {
-    background-color: var(--light-gray);
-    font-size: 16px;
-}
 header, footer{
     background-color: var(--pink);
     color: var(--white);
-    text-align: center;
-    padding: 1em;
 }
 
 section{
     background-color: var(--red);
     color: var(--light-gray);
-    margin: 1em 0;
-    padding: 1 em;
-    border-radius: 0.5em;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 img{
     margin: 0.75em 0.75em 0.75em 0;
-    display: block;
-    max-width: auto;
-    margin: 1em 0;
-    border-radius: 0.5em;
+    display: inline;
     float: left;
 }
 
@@ -205,8 +198,7 @@ img{
 /* ---------- SMALL SCREEN STYLES ---------- */
 /* --------------- BEGIN SMALL SCREEN SIZES --------------- */
     @media screen and (min-width: 600px) {
-        
-     header, footer{
+        header, footer{
         background-color: var(--lime-green);
         color: var(--dark-gray);
     }
@@ -230,7 +222,7 @@ img{
 
     img{
         width: 200px;
-        max-width: 100%;
+        max-width: 200px;
     } 
 }
 /* --------------- END SMALL SCREEN SIZES --------------- */
@@ -240,7 +232,6 @@ img{
 /* ---------- MEDIUM SCREEN STYLES ---------- */
 /* --------------- BEGIN MEDIUM SCREEN SIZES --------------- */
     @media screen and (min-width: 900px) {
-        
      header, footer{
         background-color: var(--black);
         color: var(--white);
@@ -252,7 +243,6 @@ img{
 
     section{
         background-color: var(--light-gray);
-        color: var(--dark-gray);
     }
 
     #one{
@@ -275,9 +265,8 @@ img{
 
 /* ---------- LARGE SCREEN STYLES ---------- */
 /* --------------- BEGIN LARGE SCREEN SIZES --------------- */
-@media screen and (min-width: 1200px) {
-    
-    header, footer{
+ @media screen and (min-width: 1200px) {
+        header, footer{
         background-color: var(--lime-green);
         color: var(--dark-gray);
     }
@@ -316,9 +305,10 @@ img{
 
 /* ---------- ADJUSTING RESPONSIVE IMAGE SIZE ---------- */
 /* --------------- BEGIN RESPONSIVE IMAGE ADJUST SIZES --------------- */
-@media screen and (min-width:1380px) {
-    
-     img{
+    @media screen and (min-width: 1380px) {
+        img{
+        display: block;
+        float: none;    
         width: 300px;
         max-width: 100%;
     } 
@@ -329,12 +319,10 @@ img{
 
 /* ---------- EXTRA LARGE SCREEN STYLES ---------- */
 /* --------------- BEGIN EXTRA LARGE SCREEN SIZES --------------- */
-@media screen and (min-width: 1600px) {
-
-     header, footer{
+    @media screen and (min-width: 1600px) {
+        header, footer{
         background-color: var(--orange);
         padding-left: 5%;
-        padding-right: 5%;
     }
 
     main{
